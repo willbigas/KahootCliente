@@ -22,7 +22,7 @@ public class PrincipalCliente {
         
         for (int i = 0; i < objRecebidosViaSocket.size(); i++) {
             Object tipodeObjeto = objRecebidosViaSocket.get(i);
-            
+            System.out.println(tipodeObjeto);
             if (tipodeObjeto instanceof Pergunta) { // como dar cast em um List<Pergunta> ? // 
                 PERGUNTAS_RECEBIDAS.add((Pergunta) tipodeObjeto);
             }
