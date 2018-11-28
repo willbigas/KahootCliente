@@ -33,19 +33,6 @@ public class PrincipalCliente {
 
         ManterSocketNegocio.enviandoDadosViaSocket("localhost", 8787, OBJECTS);
 
-//        Socket cliente = new Socket("localhost", 8787);
-//
-//        Disciplina disciplina = new Disciplina();
-//        disciplina.setId(1);
-//        disciplina.setNome("William");
-//        disciplina.setProfessor("Felipe");
-//
-//        ObjectOutputStream output = new ObjectOutputStream(cliente.getOutputStream()); // saida de objeto da classe cliente
-//        output.flush();
-//        output.writeObject(disciplina);
-//        output.reset();
-//        output.close();
-//        cliente.close(); // fechando acesso ao servidor
     }
 
 }
