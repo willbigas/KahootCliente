@@ -10,21 +10,25 @@ import java.util.List;
  */
 public class PrincipalCliente {
 
-    public static List<Pergunta> PERGUNTAS_RECEBIDAS = new ArrayList<>();
+    public static List<Pergunta> PERGUNTAS_RECEBIDAS;
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) throws Exception {
 
-        List<Pergunta> objRecebidos = (List<Pergunta>) ManterSocketNegocio.recebendoDadosViaSocket(8787);
-        
-        for (int i = 0; i < objRecebidos.size(); i++) {
-            Pergunta get = objRecebidos.get(i);
-            PERGUNTAS_RECEBIDAS.add(get);
-            System.out.println(get);
-        }
+        List<Object> objRecebidosViaSocket = (List<Object>) ManterSocketNegocio.recebendoDadosViaSocket(8787);
 
+        
+        for (int i = 0; i < objRecebidosViaSocket.size(); i++) {
+            Object tipodeObjeto = objRecebidosViaSocket.get(i);
+            
+            if (tipodeObjeto instanceof Pergunta) { // como dar cast em um List<Pergunta> ? // 
+                PERGUNTAS_RECEBIDAS.add((Pergunta) tipodeObjeto);
+            }
+        }
+        
+        System.out.println("IMPRESSAO DE PERGUNTAS" + PERGUNTAS_RECEBIDAS);
     }
 
 }
