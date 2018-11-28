@@ -7,7 +7,7 @@ import java.util.List;
  *
  * @author Alunos
  */
-public class Pergunta implements Serializable{
+public class Pergunta implements Serializable {
 
     private Integer id;
     private String pergunta;
@@ -53,6 +53,11 @@ public class Pergunta implements Serializable{
 
     public void setAssunto(Assunto assunto) {
         this.assunto = assunto;
+    }
+
+    @Override
+    public String toString() {
+        return "Pergunta{" + "id=" + id + ", pergunta=" + pergunta + ", respostas=" + respostas + ", tempo=" + tempo + ", assunto=" + assunto + '}';
     }
 
 }
