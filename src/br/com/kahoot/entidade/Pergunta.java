@@ -1,4 +1,4 @@
-package br.com.kahootcliente.entidade;
+package br.com.kahoot.entidade;
 
 import java.io.Serializable;
 import java.util.List;

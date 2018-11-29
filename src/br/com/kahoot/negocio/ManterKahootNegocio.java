@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.kahootcliente.principal;
+package br.com.kahoot.negocio;
 
-import br.com.kahootcliente.entidade.Disciplina;
-import br.com.kahootcliente.entidade.Pergunta;
-import br.com.kahootcliente.entidade.Resposta;
-import br.com.kahootcliente.entidade.Usuario;
+import br.com.kahoot.entidade.Disciplina;
+import br.com.kahoot.entidade.Pergunta;
+import br.com.kahoot.entidade.Resposta;
+import br.com.kahoot.entidade.Usuario;
+import br.com.kahoot.principal.PrincipalCliente;
 import java.util.List;
 
 /**
@@ -40,7 +41,7 @@ public class ManterKahootNegocio {
     /**
      * Perguntas via Socket *
      */
-    public static boolean enviandoPerguntaViaSocket(List<Pergunta> perguntas) throws Exception {
+    public static boolean enviandoPerguntasViaSocket(List<Pergunta> perguntas) throws Exception {
         try {
             ManterSocketNegocio.enviandoDadosViaSocket(PrincipalCliente.CONFIGURACAO_GLOBAL.getIp(),
                     PrincipalCliente.CONFIGURACAO_GLOBAL.getPorta(), perguntas);
@@ -80,7 +81,7 @@ public class ManterKahootNegocio {
     /**
      * Usuario via Socket *
      */
-    public static boolean enviandoUsuarioViaSocket(List<Usuario> usuarios) throws Exception {
+    public static boolean enviandoUsuariosViaSocket(List<Usuario> usuarios) throws Exception {
         try {
             ManterSocketNegocio.enviandoDadosViaSocket(PrincipalCliente.CONFIGURACAO_GLOBAL.getIp(),
                     PrincipalCliente.CONFIGURACAO_GLOBAL.getPorta(), usuarios);
