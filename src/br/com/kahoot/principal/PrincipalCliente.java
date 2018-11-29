@@ -1,6 +1,5 @@
 package br.com.kahoot.principal;
 
-import br.com.kahoot.entidade.Assunto;
 import br.com.kahoot.entidade.Disciplina;
 import br.com.kahoot.negocio.ManterKahootNegocio;
 import br.com.kahoot.entidade.Pergunta;
