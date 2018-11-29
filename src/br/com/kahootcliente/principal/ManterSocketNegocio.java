@@ -1,4 +1,4 @@
-package br.com;
+package br.com.kahootcliente.principal;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
