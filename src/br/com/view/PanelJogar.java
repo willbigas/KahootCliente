@@ -1,9 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.view;
+
+import br.com.kahoot.entidade.Disciplina;
+import br.com.kahoot.entidade.Pergunta;
+import br.com.kahoot.principal.PrincipalCliente;
+import java.util.List;
 
 /**
  *
@@ -14,8 +14,12 @@ public class PanelJogar extends javax.swing.JPanel {
     /**
      * Creates new form PanelJogar
      */
-    public PanelJogar() {
+    public PanelJogar(List<Pergunta> perguntas) {
         initComponents();
+        for (int i = 0; i < perguntas.size(); i++) {
+            Pergunta get = perguntas.get(i);
+            campoPergunta.setText(get.getPergunta());
+        }
     }
 
     /**
@@ -30,18 +34,18 @@ public class PanelJogar extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        botton1 = new javax.swing.JButton();
+        botton3 = new javax.swing.JButton();
+        botton2 = new javax.swing.JButton();
+        botton4 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        textoRespondaAQuestao = new javax.swing.JLabel();
+        textoAssunto = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        campoPergunta = new javax.swing.JTextArea();
+        campoAssunto = new javax.swing.JTextField();
+        textoDisciplina = new javax.swing.JLabel();
+        campoDisciplina = new javax.swing.JTextField();
 
         setLayout(new java.awt.GridBagLayout());
 
@@ -56,49 +60,49 @@ public class PanelJogar extends javax.swing.JPanel {
 
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setFont(new java.awt.Font("Dialog", 1, 80)); // NOI18N
-        jButton1.setText("teste");
+        botton1.setBackground(new java.awt.Color(255, 255, 255));
+        botton1.setFont(new java.awt.Font("Dialog", 1, 80)); // NOI18N
+        botton1.setText("teste");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.ipadx = 71;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel1.add(jButton1, gridBagConstraints);
+        jPanel1.add(botton1, gridBagConstraints);
 
-        jButton2.setBackground(new java.awt.Color(255, 255, 255));
-        jButton2.setFont(new java.awt.Font("Dialog", 1, 80)); // NOI18N
-        jButton2.setText("teste");
+        botton3.setBackground(new java.awt.Color(255, 255, 255));
+        botton3.setFont(new java.awt.Font("Dialog", 1, 80)); // NOI18N
+        botton3.setText("teste");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.ipadx = 71;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel1.add(jButton2, gridBagConstraints);
+        jPanel1.add(botton3, gridBagConstraints);
 
-        jButton3.setBackground(new java.awt.Color(255, 255, 255));
-        jButton3.setFont(new java.awt.Font("Dialog", 1, 80)); // NOI18N
-        jButton3.setText("teste");
+        botton2.setBackground(new java.awt.Color(255, 255, 255));
+        botton2.setFont(new java.awt.Font("Dialog", 1, 80)); // NOI18N
+        botton2.setText("teste");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.ipadx = 55;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel1.add(jButton3, gridBagConstraints);
+        jPanel1.add(botton2, gridBagConstraints);
 
-        jButton4.setBackground(new java.awt.Color(255, 255, 255));
-        jButton4.setFont(new java.awt.Font("Dialog", 1, 80)); // NOI18N
-        jButton4.setText("teste");
+        botton4.setBackground(new java.awt.Color(255, 255, 255));
+        botton4.setFont(new java.awt.Font("Dialog", 1, 80)); // NOI18N
+        botton4.setText("teste");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.ipadx = 55;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel1.add(jButton4, gridBagConstraints);
+        jPanel1.add(botton4, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -108,29 +112,29 @@ public class PanelJogar extends javax.swing.JPanel {
 
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel2.setText("Responda A Questão");
+        textoRespondaAQuestao.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        textoRespondaAQuestao.setText("Responda A Questão");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        jPanel2.add(jLabel2, gridBagConstraints);
+        jPanel2.add(textoRespondaAQuestao, gridBagConstraints);
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel3.setText("Assunto");
+        textoAssunto.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        textoAssunto.setText("Assunto");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.gridheight = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        jPanel2.add(jLabel3, gridBagConstraints);
+        jPanel2.add(textoAssunto, gridBagConstraints);
 
-        jTextArea1.setColumns(90);
-        jTextArea1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jTextArea1.setRows(10);
-        jScrollPane1.setViewportView(jTextArea1);
+        campoPergunta.setColumns(90);
+        campoPergunta.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        campoPergunta.setRows(10);
+        jScrollPane1.setViewportView(campoPergunta);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -139,46 +143,46 @@ public class PanelJogar extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel2.add(jScrollPane1, gridBagConstraints);
 
-        jTextField2.setColumns(30);
+        campoAssunto.setColumns(30);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        jPanel2.add(jTextField2, gridBagConstraints);
+        jPanel2.add(campoAssunto, gridBagConstraints);
 
-        jLabel4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel4.setText("Disciplina");
+        textoDisciplina.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        textoDisciplina.setText("Disciplina");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        jPanel2.add(jLabel4, gridBagConstraints);
+        jPanel2.add(textoDisciplina, gridBagConstraints);
 
-        jTextField3.setColumns(30);
+        campoDisciplina.setColumns(30);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        jPanel2.add(jTextField3, gridBagConstraints);
+        jPanel2.add(campoDisciplina, gridBagConstraints);
 
         add(jPanel2, new java.awt.GridBagConstraints());
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton botton1;
+    private javax.swing.JButton botton2;
+    private javax.swing.JButton botton3;
+    private javax.swing.JButton botton4;
+    private javax.swing.JTextField campoAssunto;
+    private javax.swing.JTextField campoDisciplina;
+    private javax.swing.JTextArea campoPergunta;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JLabel textoAssunto;
+    private javax.swing.JLabel textoDisciplina;
+    private javax.swing.JLabel textoRespondaAQuestao;
     // End of variables declaration//GEN-END:variables
 }

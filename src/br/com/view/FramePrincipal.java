@@ -6,8 +6,6 @@
 package br.com.view;
 
 import br.com.kahoot.principal.PrincipalCliente;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -120,8 +118,9 @@ public class FramePrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_BotaoSairActionPerformed
 
     private void BotaoJogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoJogarActionPerformed
+
         try {
-            PrincipalCliente.panelUsuarioJogar();
+            PrincipalCliente.panelUsuarioJogar(PrincipalCliente.PERGUNTA_RECEBIDAS);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
