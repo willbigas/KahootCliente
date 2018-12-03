@@ -120,7 +120,7 @@ public class FramePrincipal extends javax.swing.JFrame {
     private void BotaoJogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoJogarActionPerformed
 
         try {
-            PrincipalCliente.panelUsuarioJogar(PrincipalCliente.PERGUNTA_RECEBIDAS);
+            PrincipalCliente.panelUsuarioJogar();
         } catch (Exception ex) {
             ex.printStackTrace();
         }

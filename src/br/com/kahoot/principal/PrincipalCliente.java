@@ -23,7 +23,7 @@ public class PrincipalCliente {
 
     private static FramePrincipal frame;
 
-    public static List<Disciplina> DISCPLINAS_RECEBIDAS = new ArrayList<>();
+    public static List<Disciplina> DISCIPLINAS_RECEBIDAS = new ArrayList<>();
     public static List<Pergunta> PERGUNTA_RECEBIDAS = new ArrayList<>();
     public static List<Resposta> RESPOSTAS_RECEBIDAS = new ArrayList<>();
     public static List<Usuario> USUARIOS_RECEBIDOS = new ArrayList<>();
@@ -54,13 +54,17 @@ public class PrincipalCliente {
 
     private static boolean recebendoDadosDoServidor() throws Exception {
         try {
-            DISCPLINAS_RECEBIDAS = ManterKahootNegocio.recebendoDisciplinasViaSocket();
-            System.out.println(DISCPLINAS_RECEBIDAS);
+            DISCIPLINAS_RECEBIDAS = ManterKahootNegocio.recebendoDisciplinasViaSocket();
+            Thread.sleep(5000);
+            System.out.println(DISCIPLINAS_RECEBIDAS);
             RESPOSTAS_RECEBIDAS = ManterKahootNegocio.recebendoRespostasViaSocket();
+            Thread.sleep(5000);
             System.out.println(RESPOSTAS_RECEBIDAS);
             PERGUNTA_RECEBIDAS = ManterKahootNegocio.recebendoPerguntasViaSocket();
+            Thread.sleep(5000);
             System.out.println(PERGUNTA_RECEBIDAS);
             USUARIOS_RECEBIDOS = ManterKahootNegocio.recebendoUsuariosViaSocket();
+            Thread.sleep(5000);
             System.out.println(USUARIOS_RECEBIDOS);
             return true;
         } catch (Exception exception) {
@@ -68,8 +72,8 @@ public class PrincipalCliente {
         }
     }
 
-    public static void panelUsuarioJogar(List<Pergunta> perguntas) throws Exception {
-        PanelJogar panel = new PanelJogar(perguntas);
+    public static void panelUsuarioJogar() throws Exception {
+        PanelJogar panel = new PanelJogar();
         frame.setContentPane(panel);
         frame.setVisible(true);
     }

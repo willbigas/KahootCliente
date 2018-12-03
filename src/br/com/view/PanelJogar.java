@@ -1,8 +1,9 @@
 package br.com.view;
 
 import br.com.kahoot.entidade.Disciplina;
-import br.com.kahoot.entidade.Pergunta;
+import br.com.kahoot.entidade.Resposta;
 import br.com.kahoot.principal.PrincipalCliente;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,15 +12,30 @@ import java.util.List;
  */
 public class PanelJogar extends javax.swing.JPanel {
 
+    public static Integer CONTAGEM = PrincipalCliente.PERGUNTA_RECEBIDAS.size();
+
     /**
      * Creates new form PanelJogar
      */
-    public PanelJogar(List<Pergunta> perguntas) {
+    public PanelJogar() {
         initComponents();
-        for (int i = 0; i < perguntas.size(); i++) {
-            Pergunta get = perguntas.get(i);
-            campoPergunta.setText(get.getPergunta());
+        List<Disciplina> disciplinas = PrincipalCliente.DISCIPLINAS_RECEBIDAS;
+        campoDisciplina.setText(disciplinas.get(0).getNome());
+        campoAssunto.setText(PrincipalCliente.PERGUNTA_RECEBIDAS.get(0).getAssunto().getNome());
+        List<Resposta> resposta_da_pergunta = new ArrayList<>();
+        List<Resposta> respostas = PrincipalCliente.RESPOSTAS_RECEBIDAS;
+        for (int i = 0; i < respostas.size(); i++) {
+            Resposta get = respostas.get(i);
+            if (get.getPergunta().getId().equals(CONTAGEM)) {
+                resposta_da_pergunta.add(get);
+            }
         }
+        campoPergunta.setText(resposta_da_pergunta.get(0).getPergunta().getPergunta());
+        botton1.setText(resposta_da_pergunta.get(0).getResposta());
+        botton2.setText(resposta_da_pergunta.get(1).getResposta());
+        botton3.setText(resposta_da_pergunta.get(2).getResposta());
+        botton4.setText(resposta_da_pergunta.get(3).getResposta());
+
     }
 
     /**
