@@ -6,12 +6,16 @@ import java.io.Serializable;
  *
  * @author William
  */
-public class Usuario implements Serializable{
+public class Usuario implements Serializable {
 
     private Integer id;
     private String nome;
     private Integer pontos;
     private String ip;
+
+    public Usuario() {
+        this.pontos = 0;
+    }
 
     public Integer getId() {
         return id;
@@ -49,7 +53,5 @@ public class Usuario implements Serializable{
     public String toString() {
         return "Usuario{" + "id=" + id + ", nome=" + nome + ", pontos=" + pontos + ", ip=" + ip + '}';
     }
-    
-    
 
 }

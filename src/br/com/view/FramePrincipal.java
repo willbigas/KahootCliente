@@ -6,6 +6,7 @@
 package br.com.view;
 
 import br.com.kahoot.principal.PrincipalCliente;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,11 +14,15 @@ import br.com.kahoot.principal.PrincipalCliente;
  */
 public class FramePrincipal extends javax.swing.JFrame {
 
+    public static String NOME_DO_USUARIO = "";
+
     /**
      * Creates new form FramePrincipal
      */
     public FramePrincipal() {
+
         initComponents();
+
     }
 
     /**
@@ -118,7 +123,8 @@ public class FramePrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_BotaoSairActionPerformed
 
     private void BotaoJogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoJogarActionPerformed
-
+        String mensagem = JOptionPane.showInputDialog(this, "Digite seu nome");
+        NOME_DO_USUARIO = mensagem;
         try {
             PrincipalCliente.panelUsuarioJogar();
         } catch (Exception ex) {

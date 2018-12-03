@@ -32,6 +32,9 @@ public class PrincipalCliente {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws Exception {
+        
+       
+        
         CONFIGURACAO_GLOBAL.setIp("192.168.109.46");
         CONFIGURACAO_GLOBAL.setPorta(8989);
 

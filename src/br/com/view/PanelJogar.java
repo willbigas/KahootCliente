@@ -2,7 +2,10 @@ package br.com.view;
 
 import br.com.kahoot.entidade.Disciplina;
 import br.com.kahoot.entidade.Resposta;
+import br.com.kahoot.entidade.Usuario;
 import br.com.kahoot.principal.PrincipalCliente;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,29 +15,42 @@ import java.util.List;
  */
 public class PanelJogar extends javax.swing.JPanel {
 
-    public static Integer CONTAGEM = PrincipalCliente.PERGUNTA_RECEBIDAS.size();
+    public static Integer CONTAGEM_ATUAL = 1;
+    public List<Resposta> RESPOSTAS_ATUAIS = new ArrayList<>();
+    public static Usuario USUARIO_ATUAL = new Usuario();
+    public static Integer GANHOU = 200;
+    public static Integer PERDEU = 20;
 
     /**
      * Creates new form PanelJogar
      */
     public PanelJogar() {
         initComponents();
+        InetAddress ip;
+        try {
+            USUARIO_ATUAL.setNome(FramePrincipal.NOME_DO_USUARIO);
+            USUARIO_ATUAL.setId(1);
+            ip = InetAddress.getLocalHost();
+            USUARIO_ATUAL.setIp(ip.getHostAddress());
+        } catch (UnknownHostException unknownHostException) {
+        }
+
         List<Disciplina> disciplinas = PrincipalCliente.DISCIPLINAS_RECEBIDAS;
         campoDisciplina.setText(disciplinas.get(0).getNome());
         campoAssunto.setText(PrincipalCliente.PERGUNTA_RECEBIDAS.get(0).getAssunto().getNome());
-        List<Resposta> resposta_da_pergunta = new ArrayList<>();
         List<Resposta> respostas = PrincipalCliente.RESPOSTAS_RECEBIDAS;
         for (int i = 0; i < respostas.size(); i++) {
             Resposta get = respostas.get(i);
-            if (get.getPergunta().getId().equals(CONTAGEM)) {
-                resposta_da_pergunta.add(get);
+            if (get.getPergunta().getId().equals(CONTAGEM_ATUAL)) {
+                RESPOSTAS_ATUAIS.add(get);
             }
         }
-        campoPergunta.setText(resposta_da_pergunta.get(0).getPergunta().getPergunta());
-        botton1.setText(resposta_da_pergunta.get(0).getResposta());
-        botton2.setText(resposta_da_pergunta.get(1).getResposta());
-        botton3.setText(resposta_da_pergunta.get(2).getResposta());
-        botton4.setText(resposta_da_pergunta.get(3).getResposta());
+        respostas = null;
+        campoPergunta.setText(RESPOSTAS_ATUAIS.get(0).getPergunta().getPergunta());
+        CampoResposta1.setText(RESPOSTAS_ATUAIS.get(0).getResposta());
+        CampoResposta2.setText(RESPOSTAS_ATUAIS.get(1).getResposta());
+        CampoResposta3.setText(RESPOSTAS_ATUAIS.get(2).getResposta());
+        CampoResposta4.setText(RESPOSTAS_ATUAIS.get(3).getResposta());
 
     }
 
@@ -49,11 +65,6 @@ public class PanelJogar extends javax.swing.JPanel {
         java.awt.GridBagConstraints gridBagConstraints;
 
         jLabel1 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        botton1 = new javax.swing.JButton();
-        botton3 = new javax.swing.JButton();
-        botton2 = new javax.swing.JButton();
-        botton4 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         textoRespondaAQuestao = new javax.swing.JLabel();
         textoAssunto = new javax.swing.JLabel();
@@ -62,69 +73,27 @@ public class PanelJogar extends javax.swing.JPanel {
         campoAssunto = new javax.swing.JTextField();
         textoDisciplina = new javax.swing.JLabel();
         campoDisciplina = new javax.swing.JTextField();
+        jPanel3 = new javax.swing.JPanel();
+        Botton1 = new javax.swing.JRadioButton();
+        Botton2 = new javax.swing.JRadioButton();
+        Botton3 = new javax.swing.JRadioButton();
+        Botton4 = new javax.swing.JRadioButton();
+        CampoResposta1 = new javax.swing.JTextField();
+        CampoResposta2 = new javax.swing.JTextField();
+        CampoResposta3 = new javax.swing.JTextField();
+        CampoResposta4 = new javax.swing.JTextField();
+        BottonProximo = new javax.swing.JToggleButton();
 
         setLayout(new java.awt.GridBagLayout());
 
         jLabel1.setText("Desenvolvido por Agostinho, Adriene, kellison, William - SENAC PALHOÇA");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
+        gridBagConstraints.gridy = 2;
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         add(jLabel1, gridBagConstraints);
-
-        jPanel1.setLayout(new java.awt.GridBagLayout());
-
-        botton1.setBackground(new java.awt.Color(255, 255, 255));
-        botton1.setFont(new java.awt.Font("Dialog", 1, 80)); // NOI18N
-        botton1.setText("teste");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 71;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel1.add(botton1, gridBagConstraints);
-
-        botton3.setBackground(new java.awt.Color(255, 255, 255));
-        botton3.setFont(new java.awt.Font("Dialog", 1, 80)); // NOI18N
-        botton3.setText("teste");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipadx = 71;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel1.add(botton3, gridBagConstraints);
-
-        botton2.setBackground(new java.awt.Color(255, 255, 255));
-        botton2.setFont(new java.awt.Font("Dialog", 1, 80)); // NOI18N
-        botton2.setText("teste");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 55;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel1.add(botton2, gridBagConstraints);
-
-        botton4.setBackground(new java.awt.Color(255, 255, 255));
-        botton4.setFont(new java.awt.Font("Dialog", 1, 80)); // NOI18N
-        botton4.setText("teste");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.ipadx = 55;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
-        jPanel1.add(botton4, gridBagConstraints);
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        add(jPanel1, gridBagConstraints);
 
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
@@ -147,7 +116,7 @@ public class PanelJogar extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel2.add(textoAssunto, gridBagConstraints);
 
-        campoPergunta.setColumns(90);
+        campoPergunta.setColumns(80);
         campoPergunta.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         campoPergunta.setRows(10);
         jScrollPane1.setViewportView(campoPergunta);
@@ -182,20 +151,114 @@ public class PanelJogar extends javax.swing.JPanel {
         jPanel2.add(campoDisciplina, gridBagConstraints);
 
         add(jPanel2, new java.awt.GridBagConstraints());
+
+        jPanel3.setLayout(new java.awt.GridBagLayout());
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.insets = new java.awt.Insets(7, 7, 7, 7);
+        jPanel3.add(Botton1, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.insets = new java.awt.Insets(7, 7, 7, 7);
+        jPanel3.add(Botton2, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.insets = new java.awt.Insets(7, 7, 7, 7);
+        jPanel3.add(Botton3, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.insets = new java.awt.Insets(7, 7, 7, 7);
+        jPanel3.add(Botton4, gridBagConstraints);
+
+        CampoResposta1.setColumns(75);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.insets = new java.awt.Insets(7, 7, 7, 7);
+        jPanel3.add(CampoResposta1, gridBagConstraints);
+
+        CampoResposta2.setColumns(75);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.insets = new java.awt.Insets(7, 7, 7, 7);
+        jPanel3.add(CampoResposta2, gridBagConstraints);
+
+        CampoResposta3.setColumns(75);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.insets = new java.awt.Insets(7, 7, 7, 7);
+        jPanel3.add(CampoResposta3, gridBagConstraints);
+
+        CampoResposta4.setColumns(75);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.insets = new java.awt.Insets(7, 7, 7, 7);
+        jPanel3.add(CampoResposta4, gridBagConstraints);
+
+        BottonProximo.setText("PROXIMO");
+        BottonProximo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BottonProximoActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 5;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_END;
+        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
+        jPanel3.add(BottonProximo, gridBagConstraints);
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        add(jPanel3, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BottonProximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BottonProximoActionPerformed
+        // TODO add your handling code here:
+        if (Botton1.isSelected() && RESPOSTAS_ATUAIS.get(0).getCorreta() == true) {
+            USUARIO_ATUAL.setPontos(USUARIO_ATUAL.getPontos() + GANHOU);
+            System.out.println(USUARIO_ATUAL);
+        } else {
+            USUARIO_ATUAL.setPontos(USUARIO_ATUAL.getPontos() - PERDEU);
+            System.out.println(USUARIO_ATUAL);
+        }
+
+        CONTAGEM_ATUAL++;
+        RESPOSTAS_ATUAIS = null;
+
+        try {
+
+            PrincipalCliente.panelUsuarioJogar();
+        } catch (Exception exception) {
+        }
+    }//GEN-LAST:event_BottonProximoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botton1;
-    private javax.swing.JButton botton2;
-    private javax.swing.JButton botton3;
-    private javax.swing.JButton botton4;
+    private javax.swing.JRadioButton Botton1;
+    private javax.swing.JRadioButton Botton2;
+    private javax.swing.JRadioButton Botton3;
+    private javax.swing.JRadioButton Botton4;
+    private javax.swing.JToggleButton BottonProximo;
+    private javax.swing.JTextField CampoResposta1;
+    private javax.swing.JTextField CampoResposta2;
+    private javax.swing.JTextField CampoResposta3;
+    private javax.swing.JTextField CampoResposta4;
     private javax.swing.JTextField campoAssunto;
     private javax.swing.JTextField campoDisciplina;
     private javax.swing.JTextArea campoPergunta;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel textoAssunto;
     private javax.swing.JLabel textoDisciplina;
