@@ -20,6 +20,7 @@ public class PanelJogar extends javax.swing.JPanel {
     public static Usuario USUARIO_ATUAL = new Usuario();
     public static Integer GANHOU = 200;
     public static Integer PERDEU = 20;
+    public static Integer PONTOS_DO_USUARIO = 0;
 
     /**
      * Creates new form PanelJogar
@@ -224,14 +225,45 @@ public class PanelJogar extends javax.swing.JPanel {
 
     private void BottonProximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BottonProximoActionPerformed
         // TODO add your handling code here:
+        
+        /**
+         * Primeira CheckBox
+         */
         if (Botton1.isSelected() && RESPOSTAS_ATUAIS.get(0).getCorreta() == true) {
-            USUARIO_ATUAL.setPontos(USUARIO_ATUAL.getPontos() + GANHOU);
-            System.out.println(USUARIO_ATUAL);
-        } else {
-            USUARIO_ATUAL.setPontos(USUARIO_ATUAL.getPontos() - PERDEU);
-            System.out.println(USUARIO_ATUAL);
+            PONTOS_DO_USUARIO = PONTOS_DO_USUARIO + GANHOU;
+        } 
+        if (Botton1.isSelected() && RESPOSTAS_ATUAIS.get(0).getCorreta() == false) {
+            PONTOS_DO_USUARIO = PONTOS_DO_USUARIO - PERDEU;
+        }
+        /**
+         * Segunda CheckBox
+         */
+        if (Botton2.isSelected() && RESPOSTAS_ATUAIS.get(1).getCorreta() == true) {
+            PONTOS_DO_USUARIO = PONTOS_DO_USUARIO + GANHOU;
+        } 
+        if (Botton2.isSelected() && RESPOSTAS_ATUAIS.get(1).getCorreta() == false) {
+            PONTOS_DO_USUARIO = PONTOS_DO_USUARIO - PERDEU;
+        }
+        /**
+         * Terceira Checkbox
+         */
+        if (Botton3.isSelected() && RESPOSTAS_ATUAIS.get(2).getCorreta() == true) {
+            PONTOS_DO_USUARIO = PONTOS_DO_USUARIO + GANHOU;
+        } 
+        if(Botton3.isSelected() && RESPOSTAS_ATUAIS.get(2).getCorreta() == false) {
+            PONTOS_DO_USUARIO = PONTOS_DO_USUARIO - PERDEU;
+        }
+        /**
+         * Quarta checkbox
+         */
+        if (Botton4.isSelected() && RESPOSTAS_ATUAIS.get(3).getCorreta() == true) {
+            PONTOS_DO_USUARIO = PONTOS_DO_USUARIO + GANHOU;
+        } 
+        if(Botton4.isSelected() && RESPOSTAS_ATUAIS.get(3).getCorreta() == false) {
+            PONTOS_DO_USUARIO = PONTOS_DO_USUARIO - PERDEU;
         }
 
+        System.out.println("Pontos finais depois de Responder uma Pergunta" + PONTOS_DO_USUARIO);
         CONTAGEM_ATUAL++;
         RESPOSTAS_ATUAIS = null;
 

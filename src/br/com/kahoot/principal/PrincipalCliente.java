@@ -35,7 +35,7 @@ public class PrincipalCliente {
         
        
         
-        CONFIGURACAO_GLOBAL.setIp("192.168.109.46");
+        CONFIGURACAO_GLOBAL.setIp("localhost");
         CONFIGURACAO_GLOBAL.setPorta(8989);
 
         boolean recebido = recebendoDadosDoServidor();
