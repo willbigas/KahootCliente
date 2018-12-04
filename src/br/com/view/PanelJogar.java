@@ -4,10 +4,12 @@ import br.com.kahoot.entidade.Disciplina;
 import br.com.kahoot.entidade.Resposta;
 import br.com.kahoot.entidade.Usuario;
 import br.com.kahoot.principal.PrincipalCliente;
+import java.awt.HeadlessException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -75,10 +77,10 @@ public class PanelJogar extends javax.swing.JPanel {
         textoDisciplina = new javax.swing.JLabel();
         campoDisciplina = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
-        Botton1 = new javax.swing.JRadioButton();
-        Botton2 = new javax.swing.JRadioButton();
-        Botton3 = new javax.swing.JRadioButton();
-        Botton4 = new javax.swing.JRadioButton();
+        botton1 = new javax.swing.JRadioButton();
+        botton2 = new javax.swing.JRadioButton();
+        botton3 = new javax.swing.JRadioButton();
+        botton4 = new javax.swing.JRadioButton();
         CampoResposta1 = new javax.swing.JTextField();
         CampoResposta2 = new javax.swing.JTextField();
         CampoResposta3 = new javax.swing.JTextField();
@@ -158,22 +160,22 @@ public class PanelJogar extends javax.swing.JPanel {
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.insets = new java.awt.Insets(7, 7, 7, 7);
-        jPanel3.add(Botton1, gridBagConstraints);
+        jPanel3.add(botton1, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.insets = new java.awt.Insets(7, 7, 7, 7);
-        jPanel3.add(Botton2, gridBagConstraints);
+        jPanel3.add(botton2, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.insets = new java.awt.Insets(7, 7, 7, 7);
-        jPanel3.add(Botton3, gridBagConstraints);
+        jPanel3.add(botton3, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.insets = new java.awt.Insets(7, 7, 7, 7);
-        jPanel3.add(Botton4, gridBagConstraints);
+        jPanel3.add(botton4, gridBagConstraints);
 
         CampoResposta1.setColumns(75);
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -224,44 +226,11 @@ public class PanelJogar extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BottonProximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BottonProximoActionPerformed
-        // TODO add your handling code here:
-        
-        /**
-         * Primeira CheckBox
-         */
-        if (Botton1.isSelected() && RESPOSTAS_ATUAIS.get(0).getCorreta() == true) {
-            PONTOS_DO_USUARIO = PONTOS_DO_USUARIO + GANHOU;
-        } 
-        if (Botton1.isSelected() && RESPOSTAS_ATUAIS.get(0).getCorreta() == false) {
-            PONTOS_DO_USUARIO = PONTOS_DO_USUARIO - PERDEU;
-        }
-        /**
-         * Segunda CheckBox
-         */
-        if (Botton2.isSelected() && RESPOSTAS_ATUAIS.get(1).getCorreta() == true) {
-            PONTOS_DO_USUARIO = PONTOS_DO_USUARIO + GANHOU;
-        } 
-        if (Botton2.isSelected() && RESPOSTAS_ATUAIS.get(1).getCorreta() == false) {
-            PONTOS_DO_USUARIO = PONTOS_DO_USUARIO - PERDEU;
-        }
-        /**
-         * Terceira Checkbox
-         */
-        if (Botton3.isSelected() && RESPOSTAS_ATUAIS.get(2).getCorreta() == true) {
-            PONTOS_DO_USUARIO = PONTOS_DO_USUARIO + GANHOU;
-        } 
-        if(Botton3.isSelected() && RESPOSTAS_ATUAIS.get(2).getCorreta() == false) {
-            PONTOS_DO_USUARIO = PONTOS_DO_USUARIO - PERDEU;
-        }
-        /**
-         * Quarta checkbox
-         */
-        if (Botton4.isSelected() && RESPOSTAS_ATUAIS.get(3).getCorreta() == true) {
-            PONTOS_DO_USUARIO = PONTOS_DO_USUARIO + GANHOU;
-        } 
-        if(Botton4.isSelected() && RESPOSTAS_ATUAIS.get(3).getCorreta() == false) {
-            PONTOS_DO_USUARIO = PONTOS_DO_USUARIO - PERDEU;
-        }
+       
+
+        if (validandoCheckBox()) return;
+
+        validandoRespostaECalculandoPontos();
 
         System.out.println("Pontos finais depois de Responder uma Pergunta" + PONTOS_DO_USUARIO);
         CONTAGEM_ATUAL++;
@@ -271,20 +240,157 @@ public class PanelJogar extends javax.swing.JPanel {
 
             PrincipalCliente.panelUsuarioJogar();
         } catch (Exception exception) {
+            JOptionPane.showMessageDialog(this, "FIM DE JOGO!");
         }
     }//GEN-LAST:event_BottonProximoActionPerformed
 
+    private boolean validandoCheckBox() throws HeadlessException {
+        /**
+         * Se todos estiverem Selecionados
+         */
+        if (botton1.isSelected() && botton2.isSelected() && botton3.isSelected() && botton4.isSelected()) {
+            JOptionPane.showMessageDialog(this, "Selecione apenas uma Resposta.");
+            return true;
+        }
+        /**
+         *  1 e 2
+         */
+        if (botton1.isSelected() && botton2.isSelected()) {
+            JOptionPane.showMessageDialog(this, "Selecione apenas uma Resposta.");
+            return true;
+        }
+        /**
+         *  1 e 3
+         */
+        if (botton1.isSelected() && botton3.isSelected()) {
+            JOptionPane.showMessageDialog(this, "Selecione apenas uma Resposta.");
+            return true;
+        }
+        /**
+         *  1 e 4
+         */
+        if (botton1.isSelected() && botton4.isSelected()) {
+            JOptionPane.showMessageDialog(this, "Selecione apenas uma Resposta.");
+            return true;
+        }
+        /**
+         * 2 e 1
+         */
+        if (botton2.isSelected() && botton1.isSelected()) {
+            JOptionPane.showMessageDialog(this, "Selecione apenas uma Resposta.");
+            return true;
+        }
+        /**
+         *  2 e 3
+         */
+        if (botton2.isSelected() && botton3.isSelected()) {
+            JOptionPane.showMessageDialog(this, "Selecione apenas uma Resposta.");
+            return true;
+        }
+        /**
+         *  2 e 4
+         */
+        if (botton2.isSelected() && botton4.isSelected()) {
+            JOptionPane.showMessageDialog(this, "Selecione apenas uma Resposta.");
+            return true;
+        }
+        /**
+         * 3 e 1
+         */
+        if (botton3.isSelected() && botton1.isSelected()) {
+            JOptionPane.showMessageDialog(this, "Selecione apenas uma Resposta.");
+            return true;
+        }
+        /**
+         * 3 e 2
+         */
+        if (botton3.isSelected() && botton2.isSelected()) {
+            JOptionPane.showMessageDialog(this, "Selecione apenas uma Resposta.");
+            return true;
+        }
+        /**
+         * 3 e 4
+         */
+        if (botton3.isSelected() && botton4.isSelected()) {
+            JOptionPane.showMessageDialog(this, "Selecione apenas uma Resposta.");
+            return true;
+        }
+        /**
+         * 4 e 1
+         */
+        if (botton4.isSelected() && botton1.isSelected()) {
+            JOptionPane.showMessageDialog(this, "Selecione apenas uma Resposta.");
+            return true;
+        }
+        /**
+         * 4 e 2
+         */
+        if (botton4.isSelected() && botton2.isSelected()) {
+            JOptionPane.showMessageDialog(this, "Selecione apenas uma Resposta.");
+            return true;
+        }
+        /**
+         * 4 e 3
+         */
+        if (botton4.isSelected() && botton3.isSelected()) {
+            JOptionPane.showMessageDialog(this, "Selecione apenas uma Resposta.");
+            return true;
+        }
+        return false;
+    }
+
+    private void validandoRespostaECalculandoPontos() {
+        // TODO add your handling code here:
+
+        /**
+         * Primeira CheckBox
+         */
+        if (botton1.isSelected() && RESPOSTAS_ATUAIS.get(0).getCorreta() == true) {
+            PONTOS_DO_USUARIO = PONTOS_DO_USUARIO + GANHOU;
+        }
+        if (botton1.isSelected() && RESPOSTAS_ATUAIS.get(0).getCorreta() == false) {
+            PONTOS_DO_USUARIO = PONTOS_DO_USUARIO - PERDEU;
+        }
+        /**
+         * Segunda CheckBox
+         */
+        if (botton2.isSelected() && RESPOSTAS_ATUAIS.get(1).getCorreta() == true) {
+            PONTOS_DO_USUARIO = PONTOS_DO_USUARIO + GANHOU;
+        }
+        if (botton2.isSelected() && RESPOSTAS_ATUAIS.get(1).getCorreta() == false) {
+            PONTOS_DO_USUARIO = PONTOS_DO_USUARIO - PERDEU;
+        }
+        /**
+         * Terceira Checkbox
+         */
+        if (botton3.isSelected() && RESPOSTAS_ATUAIS.get(2).getCorreta() == true) {
+            PONTOS_DO_USUARIO = PONTOS_DO_USUARIO + GANHOU;
+        }
+        if (botton3.isSelected() && RESPOSTAS_ATUAIS.get(2).getCorreta() == false) {
+            PONTOS_DO_USUARIO = PONTOS_DO_USUARIO - PERDEU;
+        }
+        /**
+         * Quarta checkbox
+         */
+        if (botton4.isSelected() && RESPOSTAS_ATUAIS.get(3).getCorreta() == true) {
+            PONTOS_DO_USUARIO = PONTOS_DO_USUARIO + GANHOU;
+        }
+        if (botton4.isSelected() && RESPOSTAS_ATUAIS.get(3).getCorreta() == false) {
+            PONTOS_DO_USUARIO = PONTOS_DO_USUARIO - PERDEU;
+        }
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton Botton1;
-    private javax.swing.JRadioButton Botton2;
-    private javax.swing.JRadioButton Botton3;
-    private javax.swing.JRadioButton Botton4;
     private javax.swing.JToggleButton BottonProximo;
     private javax.swing.JTextField CampoResposta1;
     private javax.swing.JTextField CampoResposta2;
     private javax.swing.JTextField CampoResposta3;
     private javax.swing.JTextField CampoResposta4;
+    private javax.swing.JRadioButton botton1;
+    private javax.swing.JRadioButton botton2;
+    private javax.swing.JRadioButton botton3;
+    private javax.swing.JRadioButton botton4;
     private javax.swing.JTextField campoAssunto;
     private javax.swing.JTextField campoDisciplina;
     private javax.swing.JTextArea campoPergunta;
