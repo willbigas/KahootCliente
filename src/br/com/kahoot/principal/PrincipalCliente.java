@@ -27,16 +27,20 @@ public class PrincipalCliente {
     public static List<Pergunta> PERGUNTA_RECEBIDAS = new ArrayList<>();
     public static List<Resposta> RESPOSTAS_RECEBIDAS = new ArrayList<>();
     public static List<Usuario> USUARIOS_RECEBIDOS = new ArrayList<>();
+    public static Usuario USUARIO_ATUAL = new Usuario();
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) throws Exception {
-        
-       
-        
-        CONFIGURACAO_GLOBAL.setIp("localhost");
-        CONFIGURACAO_GLOBAL.setPorta(8989);
+
+        /**
+         * Primeiro Login
+         */
+        String ip  = JOptionPane.showInputDialog("Digite o IP do Servidor");
+        String porta = JOptionPane.showInputDialog("Digite a Porta do Servidor");
+        CONFIGURACAO_GLOBAL.setIp(ip);
+        CONFIGURACAO_GLOBAL.setPorta(Integer.valueOf(porta));
 
         boolean recebido = recebendoDadosDoServidor();
 

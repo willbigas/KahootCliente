@@ -2,7 +2,7 @@ package br.com.view;
 
 import br.com.kahoot.entidade.Disciplina;
 import br.com.kahoot.entidade.Resposta;
-import br.com.kahoot.entidade.Usuario;
+import br.com.kahoot.negocio.ManterKahootNegocio;
 import br.com.kahoot.principal.PrincipalCliente;
 import java.awt.HeadlessException;
 import java.net.InetAddress;
@@ -19,7 +19,6 @@ public class PanelJogar extends javax.swing.JPanel {
 
     public static Integer CONTAGEM_ATUAL = 1;
     public List<Resposta> RESPOSTAS_ATUAIS = new ArrayList<>();
-    public static Usuario USUARIO_ATUAL = new Usuario();
     public static Integer GANHOU = 200;
     public static Integer PERDEU = 20;
     public static Integer PONTOS_DO_USUARIO = 0;
@@ -31,10 +30,10 @@ public class PanelJogar extends javax.swing.JPanel {
         initComponents();
         InetAddress ip;
         try {
-            USUARIO_ATUAL.setNome(FramePrincipal.NOME_DO_USUARIO);
-            USUARIO_ATUAL.setId(1);
+            PrincipalCliente.USUARIO_ATUAL.setNome(FramePrincipal.NOME_DO_USUARIO);
+          PrincipalCliente.USUARIO_ATUAL.setId(1);
             ip = InetAddress.getLocalHost();
-            USUARIO_ATUAL.setIp(ip.getHostAddress());
+            PrincipalCliente.USUARIO_ATUAL.setIp(ip.getHostAddress());
         } catch (UnknownHostException unknownHostException) {
         }
 
@@ -226,9 +225,10 @@ public class PanelJogar extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BottonProximoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BottonProximoActionPerformed
-       
 
-        if (validandoCheckBox()) return;
+        if (validandoCheckBox()) {
+            return;
+        }
 
         validandoRespostaECalculandoPontos();
 
@@ -240,7 +240,20 @@ public class PanelJogar extends javax.swing.JPanel {
 
             PrincipalCliente.panelUsuarioJogar();
         } catch (Exception exception) {
+
+            /**
+             * Fim de Jogo
+             */
             JOptionPane.showMessageDialog(this, "FIM DE JOGO!");
+            PrincipalCliente.USUARIO_ATUAL.setPontos(PONTOS_DO_USUARIO);
+            
+            try {
+                JOptionPane.showMessageDialog(this, "Enviando Pontos!");
+                ManterKahootNegocio.enviandoUsuarioViaSocket(PrincipalCliente.USUARIO_ATUAL);
+            } catch (Exception exception1) {
+            }
+            
+           
         }
     }//GEN-LAST:event_BottonProximoActionPerformed
 
@@ -253,21 +266,21 @@ public class PanelJogar extends javax.swing.JPanel {
             return true;
         }
         /**
-         *  1 e 2
+         * 1 e 2
          */
         if (botton1.isSelected() && botton2.isSelected()) {
             JOptionPane.showMessageDialog(this, "Selecione apenas uma Resposta.");
             return true;
         }
         /**
-         *  1 e 3
+         * 1 e 3
          */
         if (botton1.isSelected() && botton3.isSelected()) {
             JOptionPane.showMessageDialog(this, "Selecione apenas uma Resposta.");
             return true;
         }
         /**
-         *  1 e 4
+         * 1 e 4
          */
         if (botton1.isSelected() && botton4.isSelected()) {
             JOptionPane.showMessageDialog(this, "Selecione apenas uma Resposta.");
@@ -281,14 +294,14 @@ public class PanelJogar extends javax.swing.JPanel {
             return true;
         }
         /**
-         *  2 e 3
+         * 2 e 3
          */
         if (botton2.isSelected() && botton3.isSelected()) {
             JOptionPane.showMessageDialog(this, "Selecione apenas uma Resposta.");
             return true;
         }
         /**
-         *  2 e 4
+         * 2 e 4
          */
         if (botton2.isSelected() && botton4.isSelected()) {
             JOptionPane.showMessageDialog(this, "Selecione apenas uma Resposta.");

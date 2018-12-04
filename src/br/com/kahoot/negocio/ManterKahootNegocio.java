@@ -76,10 +76,10 @@ public class ManterKahootNegocio {
     /**
      * Usuario via Socket *
      */
-    public static boolean enviandoUsuariosViaSocket(List<Usuario> usuarios) throws Exception {
+    public static boolean enviandoUsuarioViaSocket(Usuario usuario) throws Exception {
         try {
             ManterSocketNegocio.enviandoDadosViaSocket(PrincipalCliente.CONFIGURACAO_GLOBAL.getIp(),
-                    PrincipalCliente.CONFIGURACAO_GLOBAL.getPorta(), usuarios);
+                    PrincipalCliente.CONFIGURACAO_GLOBAL.getPorta(), usuario);
             return true;
         } catch (Exception exception) {
             return false;
