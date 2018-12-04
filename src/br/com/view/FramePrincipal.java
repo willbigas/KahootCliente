@@ -125,6 +125,7 @@ public class FramePrincipal extends javax.swing.JFrame {
     private void BotaoJogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoJogarActionPerformed
         String mensagem = JOptionPane.showInputDialog(this, "Digite seu nome");
         NOME_DO_USUARIO = mensagem;
+        PrincipalCliente.USUARIO_ATUAL.setNome(NOME_DO_USUARIO);
         try {
             PrincipalCliente.panelUsuarioJogar();
         } catch (Exception ex) {

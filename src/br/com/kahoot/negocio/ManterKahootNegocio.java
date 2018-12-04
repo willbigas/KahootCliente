@@ -92,5 +92,17 @@ public class ManterKahootNegocio {
                 PrincipalCliente.CONFIGURACAO_GLOBAL.getPorta());
         return usuarios;
     }
+    
+    
+    public static boolean enviandoIpViaSocket(String ip) throws Exception {
+        try {
+            ManterSocketNegocio.enviandoDadosViaSocket(PrincipalCliente.CONFIGURACAO_GLOBAL.getIp(),
+                    PrincipalCliente.CONFIGURACAO_GLOBAL.getPorta(), ip);
+            return true;
+        } catch (Exception exception) {
+            return false;
+        }
+
+    }
 
 }

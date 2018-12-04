@@ -28,14 +28,7 @@ public class PanelJogar extends javax.swing.JPanel {
      */
     public PanelJogar() {
         initComponents();
-        InetAddress ip;
-        try {
-            PrincipalCliente.USUARIO_ATUAL.setNome(FramePrincipal.NOME_DO_USUARIO);
-          PrincipalCliente.USUARIO_ATUAL.setId(1);
-            ip = InetAddress.getLocalHost();
-            PrincipalCliente.USUARIO_ATUAL.setIp(ip.getHostAddress());
-        } catch (UnknownHostException unknownHostException) {
-        }
+       
 
         List<Disciplina> disciplinas = PrincipalCliente.DISCIPLINAS_RECEBIDAS;
         campoDisciplina.setText(disciplinas.get(0).getNome());
