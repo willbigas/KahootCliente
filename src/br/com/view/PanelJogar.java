@@ -204,6 +204,7 @@ public class PanelJogar extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(7, 7, 7, 7);
         jPanel3.add(CampoResposta4, gridBagConstraints);
 
+        BottonProximo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/imagens/icon_proseguir_24x24.png"))); // NOI18N
         BottonProximo.setText("PROXIMO");
         BottonProximo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
