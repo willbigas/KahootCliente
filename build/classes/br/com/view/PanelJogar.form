@@ -16,16 +16,6 @@
 
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="jLabel1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Desenvolvido por Agostinho, Adriene, kellison, William - SENAC PALHO&#xc7;A"/>
-      </Properties>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
-          <GridBagConstraints gridX="0" gridY="2" gridWidth="2" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="5" insetsLeft="5" insetsBottom="5" insetsRight="5" anchor="13" weightX="0.0" weightY="0.0"/>
-        </Constraint>
-      </Constraints>
-    </Component>
     <Container class="javax.swing.JPanel" name="jPanel2">
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -75,6 +65,7 @@
           <SubComponents>
             <Component class="javax.swing.JTextArea" name="campoPergunta">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="columns" type="int" value="80"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Dialog" size="14" style="0"/>
@@ -86,6 +77,7 @@
         </Container>
         <Component class="javax.swing.JTextField" name="campoAssunto">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="columns" type="int" value="30"/>
           </Properties>
           <Constraints>
@@ -109,6 +101,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="campoDisciplina">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="columns" type="int" value="30"/>
           </Properties>
           <Constraints>
@@ -158,6 +151,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="CampoResposta1">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="columns" type="int" value="75"/>
           </Properties>
           <Constraints>
@@ -168,6 +162,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="CampoResposta2">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="columns" type="int" value="75"/>
           </Properties>
           <Constraints>
@@ -178,6 +173,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="CampoResposta3">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="columns" type="int" value="75"/>
           </Properties>
           <Constraints>
@@ -188,6 +184,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="CampoResposta4">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="columns" type="int" value="75"/>
           </Properties>
           <Constraints>

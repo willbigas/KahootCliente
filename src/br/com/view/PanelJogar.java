@@ -23,6 +23,7 @@ public class PanelJogar extends javax.swing.JPanel {
     public List<Resposta> RESPOSTAS_ATUAIS = new ArrayList<>();
     public static Integer GANHOU = 200;
     public static Integer PERDEU = 20;
+    public static Integer PONTO_NEGATIVO = 0;
     public static Integer PONTOS_DO_USUARIO = 0;
 
     public PanelJogar() {
@@ -55,7 +56,6 @@ public class PanelJogar extends javax.swing.JPanel {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
-        jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         textoRespondaAQuestao = new javax.swing.JLabel();
         textoAssunto = new javax.swing.JLabel();
@@ -76,15 +76,6 @@ public class PanelJogar extends javax.swing.JPanel {
         BottonProximo = new javax.swing.JToggleButton();
 
         setLayout(new java.awt.GridBagLayout());
-
-        jLabel1.setText("Desenvolvido por Agostinho, Adriene, kellison, William - SENAC PALHOÇA");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
-        gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
-        add(jLabel1, gridBagConstraints);
 
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
@@ -107,6 +98,7 @@ public class PanelJogar extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel2.add(textoAssunto, gridBagConstraints);
 
+        campoPergunta.setEditable(false);
         campoPergunta.setColumns(80);
         campoPergunta.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         campoPergunta.setRows(10);
@@ -119,6 +111,7 @@ public class PanelJogar extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(10, 10, 10, 10);
         jPanel2.add(jScrollPane1, gridBagConstraints);
 
+        campoAssunto.setEditable(false);
         campoAssunto.setColumns(30);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -135,6 +128,7 @@ public class PanelJogar extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
         jPanel2.add(textoDisciplina, gridBagConstraints);
 
+        campoDisciplina.setEditable(false);
         campoDisciplina.setColumns(30);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
@@ -165,6 +159,7 @@ public class PanelJogar extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(7, 7, 7, 7);
         jPanel3.add(botton4, gridBagConstraints);
 
+        CampoResposta1.setEditable(false);
         CampoResposta1.setColumns(75);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -172,6 +167,7 @@ public class PanelJogar extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(7, 7, 7, 7);
         jPanel3.add(CampoResposta1, gridBagConstraints);
 
+        CampoResposta2.setEditable(false);
         CampoResposta2.setColumns(75);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -179,6 +175,7 @@ public class PanelJogar extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(7, 7, 7, 7);
         jPanel3.add(CampoResposta2, gridBagConstraints);
 
+        CampoResposta3.setEditable(false);
         CampoResposta3.setColumns(75);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -186,6 +183,7 @@ public class PanelJogar extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(7, 7, 7, 7);
         jPanel3.add(CampoResposta3, gridBagConstraints);
 
+        CampoResposta4.setEditable(false);
         CampoResposta4.setColumns(75);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -226,10 +224,17 @@ public class PanelJogar extends javax.swing.JPanel {
             PrincipalCliente.panelUsuarioJogar();
         } catch (Exception exception) {
             JOptionPane.showMessageDialog(this, "FIM DE JOGO!");
-            PrincipalCliente.USUARIO_ATUAL.setPontos(PONTOS_DO_USUARIO);
+
+            if (PONTOS_DO_USUARIO < 0) {
+                PrincipalCliente.USUARIO_ATUAL.setPontos(PONTO_NEGATIVO);
+            } else {
+                PrincipalCliente.USUARIO_ATUAL.setPontos(PONTOS_DO_USUARIO);
+            }
+
             try {
                 JOptionPane.showMessageDialog(this, "Enviando Pontos!");
                 ManterKahootNegocio.enviandoUsuarioViaSocket(PrincipalCliente.USUARIO_ATUAL);
+                PrincipalCliente.PanelFramePrincipal();
             } catch (Exception exception1) {
             }
 
@@ -321,7 +326,6 @@ public class PanelJogar extends javax.swing.JPanel {
     private javax.swing.JTextField campoAssunto;
     private javax.swing.JTextField campoDisciplina;
     private javax.swing.JTextArea campoPergunta;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;

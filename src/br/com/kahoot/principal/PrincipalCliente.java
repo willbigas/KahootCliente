@@ -112,4 +112,12 @@ public class PrincipalCliente {
         frame.setVisible(true);
     }
 
+    public static void PanelFramePrincipal() throws Exception {
+        frame = new FramePrincipal();
+        frame.setTitle("QUIZ SENAC");
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+    }
+
 }
