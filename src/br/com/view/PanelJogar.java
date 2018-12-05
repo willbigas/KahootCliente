@@ -103,6 +103,7 @@ public class PanelJogar extends javax.swing.JPanel {
         jPanel2.add(textoAssunto, gridBagConstraints);
 
         campoPergunta.setEditable(false);
+        campoPergunta.setBackground(new java.awt.Color(255, 255, 255));
         campoPergunta.setColumns(80);
         campoPergunta.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         campoPergunta.setForeground(new java.awt.Color(0, 0, 0));
