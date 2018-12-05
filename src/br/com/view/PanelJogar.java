@@ -75,11 +75,14 @@ public class PanelJogar extends javax.swing.JPanel {
         CampoResposta4 = new javax.swing.JTextField();
         BottonProximo = new javax.swing.JToggleButton();
 
+        setBackground(new java.awt.Color(144, 48, 0));
         setLayout(new java.awt.GridBagLayout());
 
+        jPanel2.setBackground(new java.awt.Color(144, 48, 0));
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
         textoRespondaAQuestao.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        textoRespondaAQuestao.setForeground(new java.awt.Color(255, 255, 255));
         textoRespondaAQuestao.setText("Responda A Questão");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -89,6 +92,7 @@ public class PanelJogar extends javax.swing.JPanel {
         jPanel2.add(textoRespondaAQuestao, gridBagConstraints);
 
         textoAssunto.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        textoAssunto.setForeground(new java.awt.Color(255, 255, 255));
         textoAssunto.setText("Assunto");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -101,6 +105,7 @@ public class PanelJogar extends javax.swing.JPanel {
         campoPergunta.setEditable(false);
         campoPergunta.setColumns(80);
         campoPergunta.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        campoPergunta.setForeground(new java.awt.Color(0, 0, 0));
         campoPergunta.setRows(10);
         jScrollPane1.setViewportView(campoPergunta);
 
@@ -112,7 +117,9 @@ public class PanelJogar extends javax.swing.JPanel {
         jPanel2.add(jScrollPane1, gridBagConstraints);
 
         campoAssunto.setEditable(false);
+        campoAssunto.setBackground(new java.awt.Color(255, 255, 255));
         campoAssunto.setColumns(30);
+        campoAssunto.setForeground(new java.awt.Color(0, 0, 0));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
@@ -121,6 +128,7 @@ public class PanelJogar extends javax.swing.JPanel {
         jPanel2.add(campoAssunto, gridBagConstraints);
 
         textoDisciplina.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        textoDisciplina.setForeground(new java.awt.Color(255, 255, 255));
         textoDisciplina.setText("Disciplina");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -129,7 +137,9 @@ public class PanelJogar extends javax.swing.JPanel {
         jPanel2.add(textoDisciplina, gridBagConstraints);
 
         campoDisciplina.setEditable(false);
+        campoDisciplina.setBackground(new java.awt.Color(255, 255, 255));
         campoDisciplina.setColumns(30);
+        campoDisciplina.setForeground(new java.awt.Color(0, 0, 0));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.anchor = java.awt.GridBagConstraints.LINE_START;
         gridBagConstraints.insets = new java.awt.Insets(5, 5, 5, 5);
@@ -137,22 +147,31 @@ public class PanelJogar extends javax.swing.JPanel {
 
         add(jPanel2, new java.awt.GridBagConstraints());
 
+        jPanel3.setBackground(new java.awt.Color(144, 48, 0));
         jPanel3.setLayout(new java.awt.GridBagLayout());
+
+        botton1.setBackground(new java.awt.Color(144, 48, 0));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.insets = new java.awt.Insets(7, 7, 7, 7);
         jPanel3.add(botton1, gridBagConstraints);
+
+        botton2.setBackground(new java.awt.Color(144, 48, 0));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.insets = new java.awt.Insets(7, 7, 7, 7);
         jPanel3.add(botton2, gridBagConstraints);
+
+        botton3.setBackground(new java.awt.Color(144, 48, 0));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.insets = new java.awt.Insets(7, 7, 7, 7);
         jPanel3.add(botton3, gridBagConstraints);
+
+        botton4.setBackground(new java.awt.Color(144, 48, 0));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
@@ -160,7 +179,9 @@ public class PanelJogar extends javax.swing.JPanel {
         jPanel3.add(botton4, gridBagConstraints);
 
         CampoResposta1.setEditable(false);
+        CampoResposta1.setBackground(new java.awt.Color(255, 255, 255));
         CampoResposta1.setColumns(75);
+        CampoResposta1.setForeground(new java.awt.Color(0, 0, 0));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 1;
@@ -168,7 +189,9 @@ public class PanelJogar extends javax.swing.JPanel {
         jPanel3.add(CampoResposta1, gridBagConstraints);
 
         CampoResposta2.setEditable(false);
+        CampoResposta2.setBackground(new java.awt.Color(255, 255, 255));
         CampoResposta2.setColumns(75);
+        CampoResposta2.setForeground(new java.awt.Color(0, 0, 0));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -176,7 +199,9 @@ public class PanelJogar extends javax.swing.JPanel {
         jPanel3.add(CampoResposta2, gridBagConstraints);
 
         CampoResposta3.setEditable(false);
+        CampoResposta3.setBackground(new java.awt.Color(255, 255, 255));
         CampoResposta3.setColumns(75);
+        CampoResposta3.setForeground(new java.awt.Color(0, 0, 0));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 3;
@@ -184,13 +209,16 @@ public class PanelJogar extends javax.swing.JPanel {
         jPanel3.add(CampoResposta3, gridBagConstraints);
 
         CampoResposta4.setEditable(false);
+        CampoResposta4.setBackground(new java.awt.Color(255, 255, 255));
         CampoResposta4.setColumns(75);
+        CampoResposta4.setForeground(new java.awt.Color(0, 0, 0));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.insets = new java.awt.Insets(7, 7, 7, 7);
         jPanel3.add(CampoResposta4, gridBagConstraints);
 
+        BottonProximo.setForeground(new java.awt.Color(255, 255, 255));
         BottonProximo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/imagens/icon_proseguir_24x24.png"))); // NOI18N
         BottonProximo.setText("PROXIMO");
         BottonProximo.addActionListener(new java.awt.event.ActionListener() {
