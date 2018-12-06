@@ -73,6 +73,7 @@ public class PrincipalCliente {
             PrincipalCliente.USUARIO_ATUAL.setIp(ip.getHostAddress());
 
         } catch (UnknownHostException unknownHostException) {
+            System.out.println(unknownHostException.getMessage());
         }
         ManterKahootNegocio.enviandoIpViaSocket(USUARIO_ATUAL.getIp());
     }
@@ -87,13 +88,13 @@ public class PrincipalCliente {
     private static boolean recebendoDadosDoServidor() throws Exception {
         try {
             DISCIPLINAS_RECEBIDAS = ManterKahootNegocio.recebendoDisciplinasViaSocket();
-            Thread.sleep(5000);
+//            Thread.sleep(5000);
             System.out.println(DISCIPLINAS_RECEBIDAS);
             RESPOSTAS_RECEBIDAS = ManterKahootNegocio.recebendoRespostasViaSocket();
-            Thread.sleep(5000);
+//            Thread.sleep(5000);
             System.out.println(RESPOSTAS_RECEBIDAS);
             PERGUNTA_RECEBIDAS = ManterKahootNegocio.recebendoPerguntasViaSocket();
-            Thread.sleep(5000);
+//            Thread.sleep(5000);
             System.out.println(PERGUNTA_RECEBIDAS);
             return true;
         } catch (Exception exception) {
