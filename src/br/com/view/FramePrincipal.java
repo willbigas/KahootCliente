@@ -11,11 +11,11 @@ import javax.swing.JOptionPane;
  * @author 05/12/2018
  */
 public class FramePrincipal extends javax.swing.JFrame {
-
+    
     public FramePrincipal() {
         initComponents();
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -91,7 +91,7 @@ public class FramePrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoSairActionPerformed
-        setVisible(false);
+        System.exit(0);
     }//GEN-LAST:event_BotaoSairActionPerformed
 
     private void BotaoJogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoJogarActionPerformed

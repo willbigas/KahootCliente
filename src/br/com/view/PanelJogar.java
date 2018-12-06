@@ -75,14 +75,14 @@ public class PanelJogar extends javax.swing.JPanel {
         CampoResposta4 = new javax.swing.JTextField();
         BottonProximo = new javax.swing.JToggleButton();
 
-        setBackground(new java.awt.Color(144, 48, 0));
+        setBackground(new java.awt.Color(153, 153, 153));
         setLayout(new java.awt.GridBagLayout());
 
-        jPanel2.setBackground(new java.awt.Color(144, 48, 0));
+        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
         jPanel2.setLayout(new java.awt.GridBagLayout());
 
         textoRespondaAQuestao.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        textoRespondaAQuestao.setForeground(new java.awt.Color(255, 255, 255));
+        textoRespondaAQuestao.setForeground(new java.awt.Color(0, 0, 0));
         textoRespondaAQuestao.setText("Responda A Questão");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -92,7 +92,7 @@ public class PanelJogar extends javax.swing.JPanel {
         jPanel2.add(textoRespondaAQuestao, gridBagConstraints);
 
         textoAssunto.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        textoAssunto.setForeground(new java.awt.Color(255, 255, 255));
+        textoAssunto.setForeground(new java.awt.Color(0, 0, 0));
         textoAssunto.setText("Assunto");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -129,7 +129,7 @@ public class PanelJogar extends javax.swing.JPanel {
         jPanel2.add(campoAssunto, gridBagConstraints);
 
         textoDisciplina.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        textoDisciplina.setForeground(new java.awt.Color(255, 255, 255));
+        textoDisciplina.setForeground(new java.awt.Color(0, 0, 0));
         textoDisciplina.setText("Disciplina");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -148,31 +148,31 @@ public class PanelJogar extends javax.swing.JPanel {
 
         add(jPanel2, new java.awt.GridBagConstraints());
 
-        jPanel3.setBackground(new java.awt.Color(144, 48, 0));
+        jPanel3.setBackground(new java.awt.Color(153, 153, 153));
         jPanel3.setLayout(new java.awt.GridBagLayout());
 
-        botton1.setBackground(new java.awt.Color(144, 48, 0));
+        botton1.setBackground(new java.awt.Color(153, 153, 153));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 1;
         gridBagConstraints.insets = new java.awt.Insets(7, 7, 7, 7);
         jPanel3.add(botton1, gridBagConstraints);
 
-        botton2.setBackground(new java.awt.Color(144, 48, 0));
+        botton2.setBackground(new java.awt.Color(153, 153, 153));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
         gridBagConstraints.insets = new java.awt.Insets(7, 7, 7, 7);
         jPanel3.add(botton2, gridBagConstraints);
 
-        botton3.setBackground(new java.awt.Color(144, 48, 0));
+        botton3.setBackground(new java.awt.Color(153, 153, 153));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 3;
         gridBagConstraints.insets = new java.awt.Insets(7, 7, 7, 7);
         jPanel3.add(botton3, gridBagConstraints);
 
-        botton4.setBackground(new java.awt.Color(144, 48, 0));
+        botton4.setBackground(new java.awt.Color(153, 153, 153));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 4;
@@ -219,7 +219,7 @@ public class PanelJogar extends javax.swing.JPanel {
         gridBagConstraints.insets = new java.awt.Insets(7, 7, 7, 7);
         jPanel3.add(CampoResposta4, gridBagConstraints);
 
-        BottonProximo.setForeground(new java.awt.Color(255, 255, 255));
+        BottonProximo.setForeground(new java.awt.Color(0, 0, 0));
         BottonProximo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/imagens/icon_proseguir_24x24.png"))); // NOI18N
         BottonProximo.setText("PROXIMO");
         BottonProximo.addActionListener(new java.awt.event.ActionListener() {
@@ -246,7 +246,7 @@ public class PanelJogar extends javax.swing.JPanel {
             return;
         }
         validandoRespostaECalculandoPontos();
-        System.out.println("Pontos finais depois de Responder uma Pergunta" + PONTOS_DO_USUARIO);
+        System.out.println("Pontos finais depois de Responder uma Pergunta " + PONTOS_DO_USUARIO);
         CONTAGEM_ATUAL++;
         RESPOSTAS_ATUAIS = null;
         try {
