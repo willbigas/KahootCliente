@@ -34,20 +34,4 @@ public class ManterSocketNegocio {
 
     }
 
-    public static Object recebendoDadosViaSocketInfinitamente(Integer porta) throws IOException, ClassNotFoundException, InterruptedException {
-        ServerSocket servidor = new ServerSocket(porta);
-        Object objRecebido = null;
-        Socket entradaDados = null;
-        while (true) {
-            entradaDados = servidor.accept();
-            ObjectInputStream input = new ObjectInputStream(entradaDados.getInputStream());
-            objRecebido = input.readObject();
-            if (objRecebido.equals("quit!")) {
-                break;
-            }
-        }
-        servidor.close();
-        entradaDados.close();
-        return objRecebido;
-    }
 }
